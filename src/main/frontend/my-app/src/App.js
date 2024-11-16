@@ -240,13 +240,18 @@ const [filteredUsers, setFilteredUsers] = useState([]);
             </div>
             <div className="bottom-header">
             <h2 className="list-title">성도 목록</h2>
-                      <input
-                        type="text"
-                        placeholder="검색할 이름을 입력하세요"
-                        value={searchQuery}
-                        onChange={handleSearchChange}
-                        className="search-input"
-                      />
+                      <div className="search-container">
+                        <input
+                          type="text"
+                          placeholder="검색할 이름을 입력하세요"
+                          value={searchQuery}
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                          className="search-input"
+                        />
+                        <button onClick={() => loadUsers(searchQuery)} className="search-button">
+                          검색
+                        </button>
+                      </div>
             </div>
           </header>
           <div>

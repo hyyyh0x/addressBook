@@ -1,4 +1,4 @@
-package addressBookForChurch.users.dto;
+package addressBook.users.dto;
 
 import jakarta.validation.constraints.NotBlank;
 

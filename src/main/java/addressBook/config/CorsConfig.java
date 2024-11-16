@@ -1,4 +1,4 @@
-package addressBookForChurch.config;
+package addressBook.config;
 
 import java.util.Arrays;
 import org.springframework.context.annotation.Bean;

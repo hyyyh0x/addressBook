@@ -1,4 +1,4 @@
-package addressBookForChurch.users.entity;
+package addressBook.users.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

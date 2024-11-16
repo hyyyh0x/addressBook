@@ -1,7 +1,7 @@
-package addressBookForChurch;
+package addressBook;
 
-import addressBookForChurch.users.entity.Users;
-import addressBookForChurch.users.repository.UsersRepository;
+import addressBook.users.entity.Users;
+import addressBook.users.repository.UsersRepository;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

@@ -1,13 +1,13 @@
-package addressBookForChurch;
+package addressBook;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AddressBookForChurchApplication {
+public class AddressBookApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AddressBookForChurchApplication.class, args);
+		SpringApplication.run(AddressBookApplication.class, args);
 	}
 
 }

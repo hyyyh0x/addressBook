@@ -1,13 +1,11 @@
-package addressBookForChurch.users.service;
+package addressBook.users.service;
 
-import addressBookForChurch.users.dto.UserDTO;
-import addressBookForChurch.users.entity.Users;
-import addressBookForChurch.users.repository.UsersRepository;
+import addressBook.users.dto.UserDTO;
+import addressBook.users.entity.Users;
+import addressBook.users.repository.UsersRepository;
+import java.util.Comparator;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -17,18 +15,22 @@ public class UserService {
 
     private final UsersRepository userRepository;
 
-    public Page<UserDTO> getAllUsers(Pageable pageable, String search) {
-        Page<Users> users;
+    public List<UserDTO> getAllUsers(String search) {
+        List<Users> users;
         if (StringUtils.hasText(search)) {
-            users = userRepository.findAllByNameContaining(search, pageable);
+            users = userRepository.findAllByNameContaining(search);
         } else {
-            users = userRepository.findAll(
-                PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(),
-                    Sort.by("name").ascending()));
+            users = userRepository.findAll();
         }
-        return users.map(
-            user -> new UserDTO(user.getId(), user.getName(), user.getPhone(), user.getPrayerNote(), user.getPicture())
-        );
+        return users.stream()
+            .sorted(Comparator.comparing(Users::getName))
+            .map(user -> new UserDTO(
+                user.getId(),
+                user.getName(),
+                user.getPhone(),
+                user.getPrayerNote(),
+                user.getPicture()))
+            .toList();
     }
 
     public UserDTO getUserById(Long userId) {

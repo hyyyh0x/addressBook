@@ -243,7 +243,7 @@ function App() {
     <div className="container">
           <header className="header">
             <div className="title-container">
-              <h1 className="church-title">팔송정교회새신자부</h1>
+              <h1 className="church-title">서김해교회</h1>
             </div>
             <div className="bottom-header">
             <h2 className="list-title">성도 목록</h2>
@@ -385,7 +385,7 @@ function App() {
           <button onClick={handleDownload} className="user-button">전체 성도 정보 다운로드하기</button>
           <br />
           <br />
-            © 2024 팔송정교회새신자부 | 모든 권리 보유
+            © 2024 서김해교회 | 모든 권리 보유
             <div id="floating-map-button">
               <button onClick={scrollToTop} className="float-button">
                 <img src="/up.png" alt="Scroll Up" className="arrow-image" />

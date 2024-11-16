@@ -263,7 +263,7 @@ function App() {
                   <>
 
                     <ul style={{ listStyleType: 'none', padding: 0 }}>
-                      {(users || []).map((user) => (
+                      {(users).map((user) => (
                         <li key={user.id} className="user-list-item">
                           {user.picture && (
                             <img

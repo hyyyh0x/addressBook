@@ -18,7 +18,7 @@ public class UserService {
     public List<UserDTO> getAllUsers(String search) {
         List<Users> users;
         if (StringUtils.hasText(search)) {
-            users = userRepository.findAllByNameContaining(search);
+            users = userRepository.findAllByNameExactOrContaining(search);
         } else {
             users = userRepository.findAll();
         }

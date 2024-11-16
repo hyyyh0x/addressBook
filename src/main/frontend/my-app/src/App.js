@@ -5,8 +5,9 @@ import { fetchAllUsers, createUser, updateUser } from './api';
 import axios from 'axios';
 
 function App() {
+const [users, setUsers] = useState([]);
+const [filteredUsers, setFilteredUsers] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [users, setUsers] = useState([]);
   const [newUser, setNewUser] = useState({ name: '', phone: '', prayerNote: '', picture: null, picturePreview: null });
   const [showUserList, setShowUserList] = useState(true);
   const [showDetails, setShowDetails] = useState(false); // 상세 보기 모드
@@ -222,7 +223,14 @@ function App() {
       };
 
   const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
+    const query = e.target.value;
+    setSearchQuery(query);
+
+    // 필터링된 사용자 목록 업데이트
+    const filtered = users.filter((user) =>
+      user.name.includes(query)
+    );
+    setFilteredUsers(filtered);
   };
   return (
     <div className="container">

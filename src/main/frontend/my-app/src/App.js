@@ -14,9 +14,6 @@ function App() {
   const [errorMessage, setErrorMessage] = useState('');
   const [selectedUser, setSelectedUser] = useState(null);
   const [adminPassword, setAdminPassword] = useState('');
-  const [currentPage, setCurrentPage] = useState(0);
-  const [pageSize] = useState(5);
-  const [totalPages, setTotalPages] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -28,18 +25,6 @@ function App() {
       const closeModal = () => {
         setIsModalOpen(false);
         setSelectedImage(null);
-      };
-
-     const handlePreviousPage = () => {
-        if (currentPage > 0) {
-          setCurrentPage(currentPage - 1);
-        }
-      };
-
-      const handleNextPage = () => {
-        if (currentPage < totalPages - 1) {
-          setCurrentPage(currentPage + 1);
-        }
       };
 
   const convertFileToBytes = (file) => {
@@ -150,7 +135,7 @@ function App() {
     useEffect(() => {
       loadUsers();
       fetchAdminPassword();
-    }, [currentPage, searchQuery]);
+    }, [searchQuery]);
 
     const loadUsers = async () => {
       try {
@@ -263,7 +248,7 @@ function App() {
                   <>
 
                     <ul style={{ listStyleType: 'none', padding: 0 }}>
-                      {(users || []).map((user) => (
+                      {(users).map((user) => (
                         <li key={user.id} className="user-list-item">
                           {user.picture && (
                             <img

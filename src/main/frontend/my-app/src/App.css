@@ -83,6 +83,43 @@ body, html {
   text-align: center;
 }
 
+.search-container {
+             display: flex;
+             align-items: center; /* 세로 가운데 정렬 */
+             gap: 10px; /* 입력 필드와 버튼 사이 간격 */
+             margin-bottom: 20px; /* 아래 콘텐츠와 간격 */
+           }
+
+           /* 입력 필드 스타일 */
+           .search-input {
+             flex: 1; /* 입력 필드가 버튼보다 넓게 차지하도록 설정 */
+             padding: 10px;
+             font-size: 16px;
+             border: 1px solid #ccc;
+             border-radius: 4px;
+           }
+
+           /* 버튼 스타일 */
+           .search-button {
+           margin: 0px 0px 15px;
+             padding: 12px;
+             font-size: 16px;
+             color: white;
+             background-color: #499C61;
+             border: none;
+             border-radius: 4px;
+             cursor: pointer;
+             transition: background-color 0.3s ease;
+           }
+
+           .search-button:hover {
+             background-color: green;
+           }
+
+           .search-button:active {
+             background-color: #003f7f;
+           }
+
 .modal-content {
   width: 80vw; /* Sets the modal width to 90% of the viewport width */
   height: auto;

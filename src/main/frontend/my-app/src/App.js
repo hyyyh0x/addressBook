@@ -246,14 +246,20 @@ function App() {
               <h1 className="church-title">팔송정교회새신자부</h1>
             </div>
             <div className="bottom-header">
-            <h2 className="list-title">성도 목록</h2>
-                      <input
-                        type="text"
-                        placeholder="검색할 이름을 입력하세요"
-                        value={searchQuery}
-                        onChange={handleSearchChange}
-                        className="search-input"
-                      />
+           <h2 className="list-title">성도 목록</h2>
+                                 <div className="search-container">
+                                   <input
+                                     type="text"
+                                     placeholder="검색할 이름을 입력하세요"
+                                     value={searchQuery}
+                                     onChange={(e) => setSearchQuery(e.target.value)}
+                                     className="search-input"
+                                   />
+                                   <button onClick={() => loadUsers(searchQuery)} className="search-button">
+                                     검색
+                                   </button>
+                                 </div>
+
             </div>
           </header>
           <div>
